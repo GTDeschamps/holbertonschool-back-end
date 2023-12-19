@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     for employee_data in employee_id_data:
         """research all employee information"""
-        user_id = employee_data['id'] #Assuming 'id' is key for user ID
+        user_id = employee_data['id']  # Assuming 'id' is key for user ID
         employee_name = employee_data['username']
         employee_url = f"{base_url}/{user_id}"
         todos_url = f"{employee_url}/todos"

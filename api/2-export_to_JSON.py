@@ -10,10 +10,6 @@ import sys
 if __name__ == '__main__':
     """action performed online when the script is run directly"""
 
-    if len(sys.argv) != 2:
-        print("Usage: python script.py <employee_id>")
-        sys.exit(1)
-
     employee_id = int(sys.argv[1])
     base_url = 'https://jsonplaceholder.typicode.com/users'
     employee_url = f"{base_url}/{employee_id}"

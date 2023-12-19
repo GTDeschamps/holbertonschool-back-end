@@ -8,6 +8,7 @@ import sys
 
 
 if __name__ == '__main__':
+    """action performed online when the script is run directly"""
 
     employee_id = int(sys.argv[1])
     base_url = 'https://jsonplaceholder.typicode.com/users'

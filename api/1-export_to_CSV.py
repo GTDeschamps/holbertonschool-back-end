@@ -2,10 +2,9 @@
 """creation first API to request Employee ID"""
 
 
-import json
+import csv
 import requests
 import sys
-import csv
 
 
 def export_tasks_to_csv(USER_ID, USER_NAME, TASKS_TITLE):

@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """Record all the TAsk of all employee; export in json"""
-
-
 import json
 import requests
 import sys

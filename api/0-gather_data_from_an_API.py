@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """creation first API to request Employee ID"""
-
-
 import requests
 import sys
 

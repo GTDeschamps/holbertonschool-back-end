@@ -6,8 +6,8 @@ import json
 import requests
 import sys
 
- API_URL = "https://jsonplaceholder.typicode.com"
- 
+API_URL = "https://jsonplaceholder.typicode.com"
+
 if __name__ == '__main__':
     """action performed online when the script is run directly"""
 

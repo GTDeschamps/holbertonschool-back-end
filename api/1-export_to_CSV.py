@@ -6,6 +6,7 @@ import csv
 import requests
 import sys
 
+API_URL = 'https://jsonplaceholder.typicode.com'
 
 def export_tasks_to_csv(USER_ID, USER_NAME, TASKS_TITLE):
     file_name = f"{USER_ID}.csv"

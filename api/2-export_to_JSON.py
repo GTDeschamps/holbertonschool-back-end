@@ -20,7 +20,7 @@ if __name__ == '__main__':
         employee_response = requests.get(employee_url)
         employee_data = employee_response.json()
         user_id = employee_data.get('id')
-        employee_name = employee_data.get('name')
+        employee_name = employee_data.get('username')
 
         """Fetch TODO list for the employee"""
         todos_response = requests.get(todos_url)

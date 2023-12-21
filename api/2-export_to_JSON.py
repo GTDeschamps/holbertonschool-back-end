@@ -9,6 +9,7 @@ API_URL = "https://jsonplaceholder.typicode.com"
 if __name__ == '__main__':
     """action performed online when the script is run directly"""
 
+def get_employee_todos(user_id):
     employee_id = int(sys.argv[1])
     base_url = 'https://jsonplaceholder.typicode.com/users'
     employee_url = f"{base_url}/{employee_id}"

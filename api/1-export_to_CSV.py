@@ -4,7 +4,9 @@ import csv
 import requests
 import sys
 
+
 API_URL = 'https://jsonplaceholder.typicode.com'
+
 
 def export_tasks_to_csv(USER_ID, USER_NAME, TASKS_TITLE):
     file_name = f"{USER_ID}.csv"
@@ -42,16 +44,6 @@ if __name__ == '__main__':
         """Calculate progress"""
         total_tasks = len(todos_data)
         completed_tasks = sum(1 for todo in todos_data if todo['completed'])
-
-        """Display progress information"""
-        print(f"Employee {employee_name} is done with tasks
-              ({completed_tasks}/{total_tasks}): ")
-
-        """Display titles of completed tasks"""
-        completed_task_titles = [todo['title']
-                                 for todo in todos_data if todo['completed']]
-        for title in completed_task_titles:
-            print(f"\t{title}")
 
         """Export completed tasks to CSV"""
         export_tasks_to_csv(employee_id, employee_name, todos_data)

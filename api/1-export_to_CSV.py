@@ -14,7 +14,7 @@ def export_tasks_to_csv(USER_ID, USER_NAME, TASKS_TITLE):
         writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL, quotechar='"')
         for TASK in TASKS_TITLE:
             writer.writerow([USER_ID, USER_NAME,
-                                    TASK["completed"], TASK["title"]])
+                             TASK["completed"], TASK["title"]])
 
 
 if __name__ == '__main__':

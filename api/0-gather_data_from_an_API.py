@@ -1,15 +1,18 @@
 #!/usr/bin/python3
 """creation first API to request Employee ID"""
+
+
 import requests
-import sys
+from sys import argv
+
 
 API_URL = 'https://jsonplaceholder.typicode.com'
+
 
 if __name__ == '__main__':
     """action performed online when the script is run directly"""
 
-def get_employee_todos(user_id):
-    employee_id = int(sys.argv[1])
+    employee_id = int(argv[1])
     base_url = 'https://jsonplaceholder.typicode.com/users'
     employee_url = f"{base_url}/{employee_id}"
     todos_url = f"{employee_url}/todos"
@@ -30,8 +33,8 @@ def get_employee_todos(user_id):
         completed_tasks = sum(1 for todo in todos_data if todo['completed'])
 
         """Display progress information"""
-        print(f"Employee {employee_name} is done with tasks
-              ({completed_tasks}/{total_tasks}): ")
+        print("Employee {} is done with tasks ({}/{}): "
+              .format(employee_name, completed_tasks, total_tasks))
 
         """Display titles of completed tasks"""
         completed_task_titles = [todo['title']
@@ -41,7 +44,7 @@ def get_employee_todos(user_id):
 
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
-        sys.exit(1)
-    if len(sys.argv) != 2:
+        exit(1)
+    if len(argv) != 2:
         print("Usage: python script.py <employee_id>")
-        sys.exit(1)
+        exit(1)

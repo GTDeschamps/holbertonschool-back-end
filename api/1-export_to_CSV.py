@@ -11,11 +11,10 @@ API_URL = 'https://jsonplaceholder.typicode.com'
 def export_tasks_to_csv(USER_ID, USER_NAME, TASKS_TITLE):
     file_name = f"{USER_ID}.csv"
     with open(file_name, mode='w', newline='', encoding='utf-8')as csv_file:
-        writer = csv.writer(csv_file)
+        writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL, quotechar='"')
         for TASK in TASKS_TITLE:
-            writer.writerow(['{}, "{}", "{}", "{}'
-                            .format(USER_ID, USER_NAME,
-                                    TASK["completed"], TASK["title"])])
+            writer.writerow([USER_ID, USER_NAME,
+                                    TASK["completed"], TASK["title"]])
 
 
 if __name__ == '__main__':
@@ -35,7 +34,7 @@ if __name__ == '__main__':
         employee_response = requests.get(employee_url)
         employee_data = employee_response.json()
         user_id = employee_data.get('id')
-        employee_name = employee_data.get('name')
+        employee_name = employee_data.get('username')
 
         """Fetch TODO list for the employee"""
         todos_response = requests.get(todos_url)

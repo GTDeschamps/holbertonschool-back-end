@@ -13,7 +13,7 @@ if __name__ == '__main__':
     employee_id_response = requests.get(base_url)
     employee_id_data = employee_id_response.json()
 
-    json_data = {}
+    todos_data = {}
 
     for employee_data in employee_id_data:
         """research all employee information"""
@@ -28,11 +28,11 @@ if __name__ == '__main__':
         todos_data = todos_response.json()
 
         """prepare data for export to json file"""
-        json_data[user_id] = []
+        todos_data[user_id] = []
         for todo in todos_data:
             task_completed_status = todo['completed']
             task_title = todo['title']
-            json_data[user_id].append({"username": employee_name,
+            todos_data[user_id].append({"username": employee_name,
                                        "task": task_title,
                                        "completed": task_completed_status})
 

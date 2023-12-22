@@ -4,16 +4,15 @@ import json
 import requests
 import sys
 
-API_URL = "https://jsonplaceholder.typicode.com"
 
 if __name__ == '__main__':
     """action performed online when the script is run directly"""
 
     base_url = 'https://jsonplaceholder.typicode.com/users'
     employee_id_response = requests.get(base_url)
-    employee_id_data = employee_id_response.json()
 
-    todos_data = {}
+    employee_id_data = employee_id_response.json()
+    json_data = {}
 
     for employee_data in employee_id_data:
         """research all employee information"""
@@ -28,13 +27,14 @@ if __name__ == '__main__':
         todos_data = todos_response.json()
 
         """prepare data for export to json file"""
-        todos_data[user_id] = []
+        json_data[user_id] = []
         for todo in todos_data:
             task_completed_status = todo['completed']
             task_title = todo['title']
-            todos_data[user_id].append({"username": employee_name,
-                                       "task": task_title,
-                                       "completed": task_completed_status})
+            json_data[user_id].append({
+                "username": employee_name,
+                "task": task_title,
+                "completed": task_completed_status})
 
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
